@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>café in | A Taste from Europe — Artisan Coffee & Fresh Bakes</title>
+<meta name="description" content="café in — a taste from Europe. Artisan coffee made with passion, fresh bakes and all-day brunch. View our menu, opening hours and reserve a table.">
+<meta name="theme-color" content="#185246">
+<meta property="og:title" content="café in | A Taste from Europe">
+<meta property="og:description" content="Crafted with love. Artisan coffee made with passion.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23185246'/%3E%3Cpath d='M16 26h28v10a12 12 0 0 1-12 12h-4a12 12 0 0 1-12-12z' fill='none' stroke='%23d6b67f' stroke-width='4'/%3E%3Cpath d='M44 29h3a5 5 0 0 1 0 10h-3' fill='none' stroke='%23d6b67f' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#185246; --green-2:#1f6454; --green-dark:#10392f; --green-deep:#0b2a23;
+  --cream:#f4ece1; --cream-2:#ebe0cf; --paper:#faf6ee; --white:#ffffff;
+  --gold:#b98f57; --gold-light:#d6b67f; --gold-dark:#97713c; --sage:#8c9b7e;
+  --ink:#1b2a24; --muted:#5d6b64; --line:#e0d5c2;
+  --radius:16px; --shadow:0 12px 34px rgba(16,57,47,.10); --shadow-lg:0 26px 60px rgba(16,57,47,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;font-size:16px}
+svg{display:block}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:-.01em;color:var(--green)}
+.container{width:min(1160px,92%);margin-inline:auto}
+section{padding:104px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-dark);font-weight:600;margin-bottom:16px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.section-head{max-width:620px;margin:0 auto 56px;text-align:center}
+.section-head .eyebrow{justify-content:center}
+.section-head h2{font-size:clamp(2.3rem,4.6vw,3.3rem);margin-bottom:16px}
+.section-head p{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 30px;border-radius:999px;font-weight:600;font-size:.88rem;letter-spacing:.03em;border:1.5px solid transparent;cursor:pointer;transition:.25s;font-family:inherit}
+.btn svg{width:18px;height:18px}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-2);transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 10px 24px rgba(185,143,87,.35)}
+.btn-outline{border-color:var(--green);color:var(--green);background:transparent}
+.btn-outline:hover{background:var(--green);color:#fff}
+.btn-light{background:#fff;color:var(--green)}
+.btn-light:hover{background:var(--cream);transform:translateY(-2px)}
+
+/* botanical decoration */
+.leaf-deco{position:absolute;color:var(--sage);pointer-events:none;opacity:.7}
+.leaf-deco svg{width:100%;height:auto;overflow:visible}
+.bean-divider{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold)}
+.bean-divider span{height:1px;width:56px;background:currentColor;opacity:.7}
+.bean-divider svg{width:20px;height:20px}
+
+/* HEADER */
+header{position:fixed;inset:0 0 auto 0;z-index:60;transition:.3s}
+header.scrolled{background:rgba(24,82,70,.97);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.16)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:82px;transition:.3s}
+header.scrolled .nav{height:70px}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.7rem;color:var(--green);letter-spacing:.01em}
+.logo-mark{width:40px;height:40px;border-radius:10px;border:1.5px solid var(--gold);display:grid;place-items:center;color:var(--gold-dark);flex-shrink:0;transition:.3s}
+.logo-mark svg{width:21px;height:21px}
+header.scrolled .logo-mark{border-color:var(--gold-light);color:var(--gold-light)}
+footer .logo-mark{border-color:var(--gold-light);color:var(--gold-light)}
+header.scrolled .brand{color:#fff}
+.nav-links{display:flex;gap:34px}
+.nav-links a{color:var(--green);font-size:.86rem;font-weight:500;position:relative;padding:6px 0}
+header.scrolled .nav-links a{color:rgba(255,255,255,.9)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--gold);transition:.25s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:10px 24px;font-size:.82rem}
+header.scrolled .nav-cta{background:var(--gold)}
+.burger{display:none;background:none;border:0;color:var(--green);cursor:pointer;width:42px;height:42px}
+header.scrolled .burger{color:#fff}
+.burger svg{width:26px;height:26px;margin:auto}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:150px 0 150px;
+  background:
+    radial-gradient(800px 460px at 90% 0%,rgba(214,182,127,.28),transparent 60%),
+    radial-gradient(700px 500px at 0% 100%,rgba(140,155,126,.22),transparent 60%),
+    var(--cream)}
+.hero::before{content:"";position:absolute;inset:0;opacity:.5;background-image:radial-gradient(rgba(140,120,80,.10) 1px,transparent 1.2px);background-size:7px 7px}
+.hero .leaf-a{width:300px;top:-30px;right:-40px;transform:rotate(38deg)}
+.hero .leaf-b{width:260px;bottom:-40px;left:-60px;transform:rotate(-28deg);opacity:.6}
+.hero .leaf-c{width:200px;top:120px;left:4%;transform:rotate(-12deg);opacity:.4}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;max-width:860px;margin-inline:auto}
+.hero-copy{text-align:center}
+.hero-eyebrow{margin-bottom:22px}
+.hero-eyebrow::after{content:"";width:34px;height:1px;background:currentColor}
+.hero-logo{width:118px;height:118px;border-radius:50%;margin:0 auto 26px;box-shadow:var(--shadow-lg)}
+.hero h1{font-size:clamp(3.8rem,9.4vw,7.6rem);line-height:.98;margin-bottom:10px}
+.hero h1 em{font-style:italic;font-weight:500;font-size:.62em;margin-right:.1em;color:var(--green-2)}
+.hero .bean-divider{margin:26px 0 18px}
+.hero .sub{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);font-weight:500;line-height:2;margin-bottom:34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.hero-points{display:flex;gap:28px;flex-wrap:wrap;margin-top:44px;justify-content:center}
+.hero-points div{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--muted)}
+.hero-points svg{width:20px;height:20px;color:var(--gold-dark)}
+.photo-frame{position:relative}
+.photo-frame::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1.5px solid var(--gold);border-radius:240px 240px 26px 26px;opacity:.7}
+.hero-photo{position:relative;width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:46% 50%;border-radius:240px 240px 26px 26px;box-shadow:var(--shadow-lg)}
+.photo-tag{position:absolute;left:-18px;bottom:34px;background:var(--green);color:#fff;border-radius:14px;padding:14px 20px;box-shadow:var(--shadow-lg);font-family:'Cormorant Garamond',serif;font-size:1.25rem;line-height:1.2}
+.photo-tag small{display:block;font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-light);margin-top:4px}
+
+/* INFO BAR */
+.infobar{position:relative;z-index:5;margin-top:-72px;padding:0}
+.infobar-card{background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1.45fr 1.3fr 1fr auto;align-items:center}
+.ib{display:flex;gap:14px;align-items:center;padding:28px 30px;border-right:1px solid var(--line);min-height:100px}
+.ib:last-child{border-right:0}
+.ico{width:46px;height:46px;border-radius:12px;background:var(--cream);display:grid;place-items:center;color:var(--green);flex-shrink:0}
+.ico svg{width:23px;height:23px}
+.ib small{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.ib b{display:block;font-size:.95rem;line-height:1.4;font-weight:600}
+.ib a:hover{color:var(--gold-dark)}
+.status{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:600;letter-spacing:.04em;padding:5px 13px;border-radius:999px;background:#eee;color:#555}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:#999}
+.status.open{background:#e3f4e8;color:#1f7a3a}.status.open::before{background:#27ae60;box-shadow:0 0 0 3px rgba(39,174,96,.2)}
+.status.closed{background:#fde9e7;color:#b3261e}.status.closed::before{background:#d93025}
+
+/* ABOUT */
+.about{padding-top:120px}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.about h2{font-size:clamp(2.3rem,4.6vw,3.3rem);margin-bottom:22px}
+.about p{color:var(--muted);margin-bottom:18px}
+.about-list{margin-top:26px;display:grid;gap:14px}
+.about-list li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem}
+.about-list svg{width:20px;height:20px;color:var(--gold-dark);flex-shrink:0;margin-top:4px}
+.values{display:grid;gap:18px}
+.value{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;gap:20px;transition:.3s}
+.value:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--gold)}
+.value h3{font-size:1.5rem;margin-bottom:6px}
+.value p{font-size:.92rem;margin:0}
+
+/* MENU */
+.menu{background:var(--green);color:#fff;position:relative;overflow:hidden}
+.menu .leaf-deco{color:#fff;opacity:.07}
+.menu .leaf-a{width:340px;top:-60px;left:-80px;transform:rotate(-140deg)}
+.menu .leaf-b{width:300px;bottom:-70px;right:-60px;transform:rotate(35deg)}
+.menu .container{position:relative}
+.menu .eyebrow{color:var(--gold-light)}
+.menu .section-head h2{color:#fff}
+.menu .section-head p{color:rgba(255,255,255,.72)}
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:48px}
+.tab{padding:10px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:transparent;color:rgba(255,255,255,.88);font-weight:500;cursor:pointer;font-family:inherit;transition:.2s;font-size:.85rem;letter-spacing:.03em}
+.tab:hover{border-color:var(--gold-light);color:#fff}
+.tab.active{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:600}
+.menu-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 72px;max-width:1040px;margin:0 auto}
+.m-item{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.14);animation:fade .45s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.m-top{display:flex;align-items:baseline;gap:12px}
+.m-top h3{font-family:'Inter',sans-serif;font-size:1.02rem;font-weight:600;color:#fff;white-space:nowrap;letter-spacing:0}
+.m-top .dots{flex:1;border-bottom:1px dotted rgba(255,255,255,.4);transform:translateY(-4px);min-width:20px}
+.m-top .price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold-light);font-weight:700}
+.m-item p{font-size:.86rem;color:rgba(255,255,255,.66);margin-top:2px;max-width:92%}
+.badge{display:inline-block;margin-left:10px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--gold-light);color:var(--gold-light);padding:2px 9px;border-radius:999px;vertical-align:middle;font-weight:600}
+.menu-note{text-align:center;margin-top:42px;font-size:.82rem;color:rgba(255,255,255,.55)}
+
+/* COMBO */
+.combo{padding:0}
+.combo-box{margin:-56px 0 0;position:relative;z-index:2;background:linear-gradient(120deg,var(--gold),var(--gold-light));color:var(--green-deep);border-radius:22px;padding:44px 52px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;box-shadow:var(--shadow-lg)}
+.combo-box h2{color:var(--green-deep);font-size:clamp(1.9rem,3.4vw,2.7rem);margin-bottom:8px}
+.combo-box p{max-width:520px;opacity:.88;font-size:.95rem}
+.combo-price{text-align:center;padding-left:32px;border-left:1px solid rgba(11,42,35,.25)}
+.combo-price strong{display:block;font-family:'Cormorant Garamond',serif;font-size:3.7rem;line-height:1;color:var(--green-deep)}
+.combo-price span{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+
+/* GALLERY */
+.gallery{padding-top:124px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:200px 200px 290px;grid-auto-rows:200px;gap:16px}
+.g{position:relative;border-radius:var(--radius);overflow:hidden;background-color:var(--green);background-image:var(--img,none),var(--art,none),var(--grad);background-size:cover;background-position:center;display:flex;align-items:flex-end;transition:.4s}
+.g::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(11,42,35,.7),transparent 55%)}
+.g:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.g span{position:relative;color:#fff;font-size:.8rem;font-weight:600;letter-spacing:.07em;padding:18px 20px}
+.g:nth-child(1){grid-row:span 2;--grad:linear-gradient(150deg,#d6b67f,#b98f57)}
+.g:nth-child(2){--grad:linear-gradient(150deg,#1f6454,#10392f)}
+.g:nth-child(3){--grad:linear-gradient(150deg,#c9a56a,#97713c)}
+.g:nth-child(4){grid-row:span 2;--grad:linear-gradient(150deg,#2a7563,#185246)}
+.g:nth-child(5){--grad:linear-gradient(150deg,#e1c795,#b98f57)}
+.g:nth-child(6){--grad:linear-gradient(150deg,#185246,#0b2a23)}
+.g:nth-child(7){grid-column:span 4;--grad:linear-gradient(150deg,#2a7563,#10392f)}
+
+/* VISIT */
+.visit{background:var(--cream)}
+.visit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px}
+.card{background:var(--white);border-radius:20px;padding:38px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.card h3{font-size:1.9rem;margin-bottom:20px}
+.card .status{margin-bottom:16px}
+.hours li{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:.94rem;color:var(--muted)}
+.hours li:last-child{border:0}
+.hours li.today{color:var(--green);font-weight:700}
+.hours li.today span:first-child::after{content:"Today";margin-left:10px;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:#fff;padding:2px 9px;border-radius:999px;vertical-align:middle}
+.contact-list{margin-bottom:24px}
+.contact-list li{display:flex;gap:14px;padding:11px 0;font-size:.94rem;align-items:flex-start}
+.contact-list svg{width:20px;height:20px;color:var(--gold-dark);flex-shrink:0;margin-top:4px}
+.contact-list a:hover{color:var(--gold-dark)}
+.map-box{position:relative;margin-top:26px;border-radius:14px;overflow:hidden;height:260px;border:1px solid var(--line);background:var(--cream-2) url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjZjRlY2UxIi8+CjxnIGZpbGw9IiNlYmUwY2YiPjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI3MCIgcng9IjgiLz48cmVjdCB4PSIxNzAiIHk9IjIwIiB3aWR0aD0iMTEwIiBoZWlnaHQ9IjcwIiByeD0iOCIvPjxyZWN0IHg9IjIwIiB5PSIxMjAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNjAiIHJ4PSI4Ii8+PHJlY3QgeD0iMzMwIiB5PSIyMCIgd2lkdGg9IjExMCIgaGVpZ2h0PSI2MCIgcng9IjgiLz48cmVjdCB4PSI0NzAiIHk9IjIwIiB3aWR0aD0iMTEwIiBoZWlnaHQ9IjgwIiByeD0iOCIvPjxyZWN0IHg9IjIwIiB5PSIyMTAiIHdpZHRoPSIxMzAiIGhlaWdodD0iNzAiIHJ4PSI4Ii8+PHJlY3QgeD0iMjAwIiB5PSIyMTUiIHdpZHRoPSI5MCIgaGVpZ2h0PSI3MCIgcng9IjgiLz48cmVjdCB4PSIzNDAiIHk9IjIxNSIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI2NSIgcng9IjgiLz48cmVjdCB4PSI0OTAiIHk9IjEzMCIgd2lkdGg9IjkwIiBoZWlnaHQ9IjcwIiByeD0iOCIvPjwvZz4KPHBhdGggZD0iTS0xMCAxNzVDOTAgMTYwIDE1MCAyMDAgMjUwIDE4MFM0MjAgMTIwIDYxMCAxNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2JmZDllMyIgc3Ryb2tlLXdpZHRoPSIzNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0tMTAgMTc1QzkwIDE2MCAxNTAgMjAwIDI1MCAxODBTNDIwIDEyMCA2MTAgMTUwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkM2U2ZWMiIHN0cm9rZS13aWR0aD0iMjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8ZyBmaWxsPSIjY2ZlM2RjIj48cmVjdCB4PSIxNzAiIHk9IjExMiIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI0NCIgcng9IjgiIHRyYW5zZm9ybT0icm90YXRlKC02IDIyMCAxMzQpIi8+PHJlY3QgeD0iMzMwIiB5PSIxMDAiIHdpZHRoPSIxMzAiIGhlaWdodD0iNDQiIHJ4PSI4IiBvcGFjaXR5PSIwIi8+PHJlY3QgeD0iMzQwIiB5PSIxMzIiIHdpZHRoPSI3MCIgaGVpZ2h0PSI0MCIgcng9IjgiIG9wYWNpdHk9IjAiLz48L2c+CjxnIGZpbGw9IiM5ZmMyYTgiPjxjaXJjbGUgY3g9IjE5MCIgY3k9IjEzMiIgcj0iNyIvPjxjaXJjbGUgY3g9IjIxMiIgY3k9IjEyNCIgcj0iOCIvPjxjaXJjbGUgY3g9IjIzNiIgY3k9IjEzMiIgcj0iNyIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjEyNCIgcj0iNiIvPjxjaXJjbGUgY3g9IjQ5MCIgY3k9IjE2NSIgcj0iOCIvPjxjaXJjbGUgY3g9IjUyMCIgY3k9IjE2MCIgcj0iNyIvPjxjaXJjbGUgY3g9IjU0OCIgY3k9IjE2OCIgcj0iOCIvPjwvZz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KPHBhdGggZD0iTTAgMTA1SDYwME0wIDIwMEg2MDBNMTUwIDBWMzAwTTMxMCAwVjMwME00NTUgMFYzMDAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxNCIvPgo8cGF0aCBkPSJNMCAxMDVINjAwTTAgMjAwSDYwME0xNTAgMFYzMDBNMzEwIDBWMzAwTTQ1NSAwVjMwMCIgc3Ryb2tlPSIjZThkZGM5IiBzdHJva2Utd2lkdGg9IjE0IiBzdHJva2Utb3BhY2l0eT0iLjAiLz4KPHBhdGggZD0iTS0xMCAyNTVMNjEwIDQwIiBzdHJva2U9IiNmMGRjYWUiIHN0cm9rZS13aWR0aD0iMTIiLz4KPHBhdGggZD0iTS0xMCAyNTVMNjEwIDQwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iMTQgMTIiIG9wYWNpdHk9Ii44Ii8+CjwvZz4KPGVsbGlwc2UgY3g9IjMwMCIgY3k9IjE4NiIgcng9IjI0IiByeT0iNyIgZmlsbD0iIzAwMCIgb3BhY2l0eT0iLjE4Ii8+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjE1MCIgcj0iNDYiIGZpbGw9IiMxODUyNDYiIG9wYWNpdHk9Ii4xMiIvPgo8cGF0aCBkPSJNMzAwIDE4NEMzMDAgMTg0IDI3MCAxNTAgMjcwIDEyNmEzMCAzMCAwIDAgMSA2MCAwYzAgMjQtMzAgNTgtMzAgNTh6IiBmaWxsPSIjMTg1MjQ2Ii8+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjEyNiIgcj0iMjAiIGZpbGw9IiNmNGVjZTEiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTg1MjQ2IiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjkwIDEyMmgxN3Y2YTYgNiAwIDAgMS02IDZoLTVhNiA2IDAgMCAxLTYtNnoiLz48cGF0aCBkPSJNMzA3IDEyNGgyYTMgMyAwIDAgMSAwIDZoLTIiLz48cGF0aCBkPSJNMjk0IDExNnYtM00zMDAgMTE2di0zIi8+PC9nPgo8L3N2Zz4=") center/cover no-repeat}
+.map-card{position:absolute;left:14px;bottom:14px;max-width:62%;background:#fff;border-radius:12px;padding:12px 16px;box-shadow:var(--shadow);font-size:.84rem;line-height:1.45;color:var(--muted)}
+.map-card b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--green);line-height:1.2}
+.map-btn{position:absolute;right:14px;bottom:14px;padding:11px 20px;font-size:.8rem;box-shadow:var(--shadow)}
+@media(max-width:560px){.map-box{height:300px}.map-card{max-width:calc(100% - 28px);bottom:68px}.map-btn{left:14px;right:14px}}
+
+/* FAQ */
+.faq-wrap{max-width:780px;margin:0 auto}
+.faq{border-bottom:1px solid var(--line)}
+.faq button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;background:none;border:0;padding:24px 0;font:600 1.02rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;text-align:left}
+.faq button svg{width:20px;height:20px;color:var(--gold-dark);transition:.3s;flex-shrink:0}
+.faq.open button svg{transform:rotate(45deg)}
+.faq .ans{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--muted);font-size:.94rem}
+.faq .ans p{padding:0 40px 24px 0}
+.faq.open .ans{max-height:240px}
+
+/* RESERVE */
+.reserve{background:var(--green);color:#fff;position:relative;overflow:hidden}
+.reserve .leaf-deco{color:#fff;opacity:.07;width:320px;top:-50px;right:-60px;transform:rotate(30deg)}
+.reserve-grid{position:relative;display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.reserve .eyebrow{color:var(--gold-light)}
+.reserve h2{color:#fff;font-size:clamp(2.3rem,4.6vw,3.3rem);margin-bottom:18px}
+.reserve p{color:rgba(255,255,255,.76);margin-bottom:12px}
+form{background:var(--white);color:var(--ink);padding:40px;border-radius:22px;box-shadow:var(--shadow-lg);display:grid;gap:18px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{font-size:.74rem;font-weight:600;color:var(--muted);display:block;margin-bottom:7px;letter-spacing:.07em;text-transform:uppercase}
+input,select,textarea{width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.95rem;background:var(--paper);color:var(--ink);transition:.2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);background:#fff;box-shadow:0 0 0 4px rgba(185,143,87,.18)}
+textarea{min-height:110px;resize:vertical}
+.form-msg{text-align:center;font-size:.88rem;color:var(--green-2);min-height:1.2em}
+
+/* INSTAGRAM */
+.insta{background:var(--paper);text-align:center}
+.insta-box{position:relative;overflow:hidden;max-width:780px;margin:0 auto;padding:64px 40px;border:1px solid var(--line);border-radius:26px;background:var(--cream);box-shadow:var(--shadow)}
+.insta-box .leaf-deco{width:200px;opacity:.5}
+.insta-box .l1{top:-20px;left:-40px;transform:rotate(-135deg)}
+.insta-box .l2{bottom:-30px;right:-40px;transform:rotate(40deg)}
+.insta-box>*:not(.leaf-deco){position:relative}
+.insta-box h2{font-size:clamp(2.1rem,4vw,2.9rem);margin-bottom:14px}
+.insta-box p{color:var(--muted);max-width:480px;margin:0 auto 28px}
+.handle{font-weight:600;color:var(--green)}
+
+/* FOOTER */
+footer{background:var(--green-deep);color:rgba(255,255,255,.72);padding:76px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:44px;margin-bottom:50px}
+footer .brand{color:#fff;margin-bottom:18px}
+footer p{font-size:.9rem;max-width:300px}
+footer h4{color:#fff;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;font-weight:600}
+footer li{margin-bottom:10px;font-size:.9rem}
+footer li a:hover{color:var(--gold-light)}
+.copy{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem;color:rgba(255,255,255,.5)}
+
+.to-top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--gold);color:#fff;border:0;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;box-shadow:var(--shadow);z-index:50;display:grid;place-items:center}
+.to-top svg{width:20px;height:20px}
+.to-top.show{opacity:1;pointer-events:auto}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:1020px){
+  .infobar-card{grid-template-columns:1fr 1fr}
+  .ib:nth-child(2){border-right:0}
+  .ib:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .ib:last-child{grid-column:span 2;border-top:1px solid var(--line)}
+  .ib:last-child .btn{width:100%}
+}
+@media(max-width:980px){
+  section{padding:76px 0}
+  .hero{padding:118px 0 120px}
+  .hero-grid,.about-grid,.visit-grid,.reserve-grid{grid-template-columns:1fr;gap:44px}
+  .hero-photo{aspect-ratio:4/3.6;border-radius:180px 180px 22px 22px}
+  .photo-frame::before{border-radius:180px 180px 22px 22px}
+  .photo-frame{max-width:520px;margin:0 auto;width:92%}
+  .photo-tag{left:-8px}
+  .menu-list{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:170px}
+  .g:nth-child(7){grid-column:span 2}
+  .combo-box{grid-template-columns:1fr;padding:36px 28px;text-align:center}
+  .combo-price{border-left:0;padding-left:0;border-top:1px solid rgba(11,42,35,.25);padding-top:20px}
+  .combo-box p{margin-inline:auto}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .burger{display:flex}
+  .nav-cta{display:none}
+  .nav-links{position:fixed;top:70px;left:0;right:0;flex-direction:column;gap:0;background:rgba(24,82,70,.99);padding:10px 6% 24px;transform:translateY(-120%);transition:.35s;z-index:-1}
+  .nav-links.open{transform:none}
+  header .nav-links a{display:block;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:1rem;color:#fff}
+  .hero .leaf-c{display:none}
+}
+@media(max-width:560px){
+  .row,.foot-grid,.infobar-card{grid-template-columns:1fr}
+  .ib{border-right:0!important;border-bottom:1px solid var(--line)}
+  .ib:last-child{grid-column:auto;border-bottom:0;border-top:0}
+  form,.card{padding:28px 22px}
+  .insta-box{padding:46px 22px}
+  .hero-actions .btn{width:100%}
+  .hero-logo{width:96px;height:96px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- SVG sprite: icons + botanical branch -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="leafShape" fill="currentColor" fill-opacity=".10" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M0 0C14-22 44-26 64 0 44 26 14 22 0 0Z"/>
+      <path d="M0 0H64M14-1c6-6 12-9 20-10M14 1c6 6 12 9 20 10M32-2c5-4 10-6 16-7M32 2c5 4 10 6 16 7" fill="none"/>
+    </g>
+    <symbol id="branch" viewBox="0 0 200 330" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <path d="M100 326C92 245 112 165 100 28"/>
+      <use href="#leafShape" transform="translate(100 292) rotate(-38) scale(1.05)"/>
+      <use href="#leafShape" transform="translate(97 262) rotate(-142) scale(1)"/>
+      <use href="#leafShape" transform="translate(104 228) rotate(-34) scale(1.05)"/>
+      <use href="#leafShape" transform="translate(100 196) rotate(-146) scale(.98)"/>
+      <use href="#leafShape" transform="translate(108 162) rotate(-30) scale(.92)"/>
+      <use href="#leafShape" transform="translate(103 130) rotate(-150) scale(.88)"/>
+      <use href="#leafShape" transform="translate(105 96) rotate(-40) scale(.78)"/>
+      <use href="#leafShape" transform="translate(101 68) rotate(-136) scale(.7)"/>
+      <use href="#leafShape" transform="translate(100 30) rotate(-90) scale(.6)"/>
+    </symbol>
+    <symbol id="i-bean" viewBox="0 0 24 24"><g transform="rotate(24 12 12)"><ellipse cx="12" cy="12" rx="6" ry="9" fill="currentColor"/><path d="M11 3.4c4 3.6-2.4 6.2 1 9.6 2 2 .6 4.4 1 7.4" fill="none" stroke="#faf6ee" stroke-width="1.4" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v3M12 3v3"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-9 5-14 15-14 0 10-5 15-14 15"/><path d="M5 19c3-5 6-8 10-10"/></symbol>
+    <symbol id="i-bake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c0-4 4-8 9-8s9 4 9 8v2H3z"/><path d="M8 12l1.5 2M12 11v3M16 12l-1.5 2"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-sofa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/><path d="M3 13a2 2 0 0 1 4 0v2h10v-2a2 2 0 0 1 4 0v5H3z"/><path d="M5 18v2M19 18v2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  </defs>
+</svg>
+
+<header id="top">
+  <div class="container nav">
+    <a href="#home" class="brand" aria-label="café in — home"><span class="logo-mark"><svg><use href="#i-cup"/></svg></span>café in</a>
+    <nav class="nav-links" id="navlinks" aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+      <a href="#faq">FAQ</a>
+      <a href="#reserve">Contact</a>
+    </nav>
+    <a href="#reserve" class="btn btn-green nav-cta">Reserve a Table</a>
+    <button class="burger" id="burger" aria-label="Toggle menu"><svg><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="leaf-deco leaf-a"><svg viewBox="0 0 200 330"><use href="#branch"/></svg></div>
+  <div class="leaf-deco leaf-b"><svg viewBox="0 0 200 330"><use href="#branch"/></svg></div>
+  <div class="leaf-deco leaf-c"><svg viewBox="0 0 200 330"><use href="#branch"/></svg></div>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow hero-eyebrow">café in · A taste from Europe</span>
+      <h1>Crafted<br><em>with</em> Love</h1>
+      <div class="bean-divider" aria-hidden="true"><span></span><svg><use href="#i-bean"/></svg><span></span></div>
+      <p class="sub">Artisan coffee<br>made with passion</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-green">View Menu <svg><use href="#i-arrow"/></svg></a>
+        <a href="#reserve" class="btn btn-outline">Reserve a Table</a>
+      </div>
+      <div class="hero-points">
+        <div><svg><use href="#i-leaf"/></svg>Quality beans</div>
+        <div><svg><use href="#i-bake"/></svg>Baked fresh daily</div>
+        <div><svg><use href="#i-wifi"/></svg>Free Wi-Fi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BAR -->
+<div class="infobar">
+  <div class="container">
+    <div class="infobar-card reveal">
+      <div class="ib"><span class="ico"><svg><use href="#i-clock"/></svg></span><div><div class="status" id="status">Checking…</div><b id="todayHours" style="margin-top:6px"></b></div></div>
+      <div class="ib"><span class="ico"><svg><use href="#i-pin"/></svg></span><div><small>Address</small><b id="heroAddr"></b></div></div>
+      <div class="ib"><span class="ico"><svg><use href="#i-phone"/></svg></span><div><small>Call us</small><b><a id="heroPhone" href="#"></a></b></div></div>
+      <div class="ib"><a id="heroDir" class="btn btn-green" href="#" target="_blank" rel="noopener">Get Directions</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="eyebrow">About café in</span>
+      <h2>A taste from Europe, made with love</h2>
+      <p>café in is inspired by the warmth of European coffee houses — where the coffee is made with care, the pastries are fresh, and nobody is in a hurry.</p>
+      <p>Whether you're stopping by for a quick espresso, meeting friends for brunch or settling in with a book, our team is here to make every visit simple and enjoyable.</p>
+      <ul class="about-list">
+        <li><svg><use href="#i-check"/></svg>Artisan coffee, brewed fresh to order</li>
+        <li><svg><use href="#i-check"/></svg>Vegetarian-friendly menu with daily specials</li>
+        <li><svg><use href="#i-check"/></svg>Dine-in, takeaway and group bookings</li>
+      </ul>
+    </div>
+    <div class="values reveal">
+      <div class="value"><span class="ico"><svg><use href="#i-leaf"/></svg></span><div><h3>Carefully sourced</h3><p>Quality beans and fresh ingredients, prepared with attention to every detail.</p></div></div>
+      <div class="value"><span class="ico"><svg><use href="#i-bake"/></svg></span><div><h3>Made fresh daily</h3><p>Pastries, sandwiches and desserts prepared in-house so every plate arrives fresh.</p></div></div>
+      <div class="value"><span class="ico"><svg><use href="#i-sofa"/></svg></span><div><h3>Warm hospitality</h3><p>Friendly service and a relaxed atmosphere — you're always welcome to stay a while.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="leaf-deco leaf-a"><svg viewBox="0 0 200 330"><use href="#branch"/></svg></div>
+  <div class="leaf-deco leaf-b"><svg viewBox="0 0 200 330"><use href="#branch"/></svg></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Menu</span>
+      <h2>Made to be savoured</h2>
+      <p>From classic espresso to something sweet — find your favourite.</p>
+    </div>
+    <div class="tabs reveal" id="tabs" role="tablist">
+      <button class="tab active" data-cat="all">All</button>
+      <button class="tab" data-cat="coffee">Coffee</button>
+      <button class="tab" data-cat="cold">Cold Drinks</button>
+      <button class="tab" data-cat="food">Food</button>
+      <button class="tab" data-cat="dessert">Desserts</button>
+    </div>
+    <div class="menu-list" id="menuList"></div>
+    <p class="menu-note">Prices in USD and may change. Please tell our team about any allergies.</p>
+  </div>
+</section>
+
+<!-- COMBO -->
+<section class="combo">
+  <div class="container">
+    <div class="combo-box reveal">
+      <div>
+        <h2>Coffee &amp; Pastry Combo</h2>
+        <p>Pair any hot coffee with a fresh pastry of your choice at a special combo price. Available all day.</p>
+      </div>
+      <div class="combo-price"><strong id="comboPrice">$7.99</strong><span>Combo price</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Gallery</span>
+      <h2>A look inside</h2>
+      <p>Latte art, warm bakes and cozy corners. See more daily on our Instagram.</p>
+    </div>
+    <div class="gallery-grid reveal" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Visit Us</span>
+      <h2>Come say hello</h2>
+      <p>Drop in, grab a seat and stay a while.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="card reveal">
+        <h3>Opening hours</h3>
+        <div class="status" id="status2">Checking…</div>
+        <ul class="hours" id="hours"></ul>
+      </div>
+      <div class="card reveal">
+        <h3>Find us</h3>
+        <ul class="contact-list">
+          <li><svg><use href="#i-pin"/></svg><span id="addr"></span></li>
+          <li><svg><use href="#i-phone"/></svg><a id="phoneLink" href="#"></a></li>
+          <li><svg><use href="#i-mail"/></svg><a id="mailLink" href="#"></a></li>
+          <li><svg><use href="#i-insta"/></svg><a href="https://www.instagram.com/cafe_in_usa" target="_blank" rel="noopener">@cafe_in_usa</a></li>
+        </ul>
+        <a id="dirBtn" class="btn btn-outline" href="#" target="_blank" rel="noopener">Get Directions</a>
+        <div class="map-box" role="img" aria-label="Map showing the café in location"><div class="map-card"><b>café in</b><span id="mapAddr"></span></div><a id="mapBtn" class="btn btn-green map-btn" href="#" target="_blank" rel="noopener">View live map</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Good to know</h2>
+      <p>Quick answers to common questions.</p>
+    </div>
+    <div class="faq-wrap reveal" id="faqWrap">
+      <div class="faq open"><button>Do I need to book a table?<svg><use href="#i-plus"/></svg></button><div class="ans"><p>Walk-ins are always welcome. For groups or special occasions, we recommend reserving using the form below.</p></div></div>
+      <div class="faq"><button>Do you offer vegetarian options?<svg><use href="#i-plus"/></svg></button><div class="ans"><p>Yes, our menu includes several vegetarian dishes, bakes and desserts. Ask our team about today's specials.</p></div></div>
+      <div class="faq"><button>Is there Wi-Fi available?<svg><use href="#i-plus"/></svg></button><div class="ans"><p>Yes, free Wi-Fi is available for all guests. Just ask at the counter for the password.</p></div></div>
+      <div class="faq"><button>Do you do takeaway?<svg><use href="#i-plus"/></svg></button><div class="ans"><p>Yes, everything on our menu is available to take away — just place your order at the counter.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVE -->
+<section class="reserve" id="reserve">
+  <div class="leaf-deco"><svg viewBox="0 0 200 330"><use href="#branch"/></svg></div>
+  <div class="container reserve-grid">
+    <div class="reveal">
+      <span class="eyebrow">Reservations &amp; Contact</span>
+      <h2>Reserve a table or send us a message</h2>
+      <p>Tell us when you'd like to visit and how many guests, and we'll get back to you.</p>
+      <p>The form opens your email app with the details filled in, ready to send.</p>
+    </div>
+    <form id="contactForm" class="reveal">
+      <div class="row">
+        <div><label for="name">Full name</label><input id="name" required placeholder="Your name"></div>
+        <div><label for="phone">Phone</label><input id="phone" type="tel" placeholder="+1 555 000 0000"></div>
+      </div>
+      <div class="row">
+        <div><label for="date">Date</label><input id="date" type="date"></div>
+        <div><label for="guests">Guests</label>
+          <select id="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7+</option></select>
+        </div>
+      </div>
+      <div><label for="msg">Message</label><textarea id="msg" placeholder="Booking details or your question…"></textarea></div>
+      <button class="btn btn-green" type="submit">Send Request</button>
+      <div class="form-msg" id="formMsg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta">
+  <div class="container">
+    <div class="insta-box reveal">
+      <div class="leaf-deco l1"><svg viewBox="0 0 200 330"><use href="#branch"/></svg></div>
+      <div class="leaf-deco l2"><svg viewBox="0 0 200 330"><use href="#branch"/></svg></div>
+      <span class="eyebrow">Follow Along</span>
+      <h2>See what's new on Instagram</h2>
+      <p>Daily specials, new menu items and behind-the-scenes moments. Follow <span class="handle">@cafe_in_usa</span> and tag us when you visit.</p>
+      <a class="btn btn-green" href="https://www.instagram.com/cafe_in_usa" target="_blank" rel="noopener"><svg><use href="#i-insta"/></svg>Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#home" class="brand"><span class="logo-mark"><svg><use href="#i-cup"/></svg></span>café in</a>
+        <p>A taste from Europe. Artisan coffee made with passion, fresh bakes and all-day brunch.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul><li><a href="#about">About</a></li><li><a href="#menu">Menu</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul><li id="fAddr"></li><li><a id="fPhone" href="#"></a></li><li><a id="fMail" href="#"></a></li></ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul><li><a href="https://www.instagram.com/cafe_in_usa" target="_blank" rel="noopener">Instagram</a></li><li><a href="#reserve">Reserve a table</a></li></ul>
+      </div>
+    </div>
+    <div class="copy"><span>© <span id="year"></span> café in. All rights reserved.</span><span>Crafted with love</span></div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top"><svg><use href="#i-up"/></svg></button>
+
+<script>
+/* =====================================================================
+   EDIT THIS BLOCK — put the cafe's real details here
+   ===================================================================== */
+const CONFIG = {
+  name: "café in",
+  address: "123 Main Street, Your City, USA",      // <-- change
+  phone: "+1 555 000 0000",                         // <-- change
+  email: "hello@yourcafe.com",                      // <-- change
+  mapQuery: "123 Main Street, Your City, USA",      // <-- change (map & directions)
+  comboPrice: "$7.99",
+  // hours: [open, close] in 24h, null = closed. Index 0 = Sunday
+  hours: [[8,20],[7,21],[7,21],[7,21],[7,21],[7,22],[8,22]],
+  // Optional gallery photos, same order as the labels below (free-to-use Unsplash images; they load when the site is online).
+  // Each tile already has a built-in illustration. To use your own cafe photos, replace a link with your image, e.g. "img/latte.jpg".
+  photos: [
+    null,   // Latte Art
+    "https://images.unsplash.com/photo-1623334044303-241021148842?auto=format&fit=crop&w=900&q=75",   // Fresh Croissants
+    "https://images.unsplash.com/photo-1517427294546-5aa121f68e8a?auto=format&fit=crop&w=900&q=75",   // Sweet Treats
+    "https://images.unsplash.com/photo-1556791766-66ac915737cf?auto=format&fit=crop&w=900&q=75",   // Cold Brews
+    "https://images.unsplash.com/photo-1540914124281-342587941389?auto=format&fit=crop&w=900&q=75",   // Brunch Plates
+    "https://images.unsplash.com/photo-1495085570317-992279e0c33d?auto=format&fit=crop&w=900&q=75",   // Cookies & Bakes
+    null   // Cozy Corners
+  ],
+  gallery: ["Latte Art","Fresh Croissants","Sweet Treats","Cold Brews","Brunch Plates","Cookies & Bakes","Cozy Corners"]
+};
+
+const MENU = [
+  {cat:"coffee",name:"Espresso",price:3.00,desc:"Rich, bold single or double shot."},
+  {cat:"coffee",name:"Cappuccino",price:4.50,desc:"Espresso with velvety steamed milk foam.",tag:"Popular"},
+  {cat:"coffee",name:"Flat White",price:4.75,desc:"Double espresso with silky microfoam."},
+  {cat:"coffee",name:"Caffè Latte",price:4.75,desc:"Smooth espresso with steamed milk and latte art.",tag:"Signature"},
+  {cat:"coffee",name:"Mocha",price:5.25,desc:"Espresso, chocolate and steamed milk."},
+  {cat:"cold",name:"Iced Latte",price:5.00,desc:"Chilled espresso over ice with cold milk."},
+  {cat:"cold",name:"Cold Brew",price:4.75,desc:"Slow-steeped for 18 hours, ultra smooth.",tag:"Popular"},
+  {cat:"cold",name:"Affogato",price:5.95,desc:"Vanilla gelato drowned in a hot espresso shot."},
+  {cat:"cold",name:"Fresh Lemonade",price:3.95,desc:"Squeezed to order, finished with mint."},
+  {cat:"food",name:"Butter Croissant",price:3.75,desc:"Flaky, buttery and baked fresh each morning.",tag:"Veg"},
+  {cat:"food",name:"Avocado Toast",price:7.95,desc:"Sourdough, smashed avocado, chili flakes and seeds.",tag:"Veg"},
+  {cat:"food",name:"Grilled Panini",price:8.95,desc:"Toasted ciabatta with chicken, greens and house sauce."},
+  {cat:"food",name:"Breakfast Plate",price:10.50,desc:"Eggs your way, toast, greens and fruit."},
+  {cat:"dessert",name:"Tiramisu",price:6.25,desc:"Classic mascarpone layers with espresso and cocoa.",tag:"Veg"},
+  {cat:"dessert",name:"Cheesecake Slice",price:5.95,desc:"Creamy New York style with berry compote.",tag:"Veg"},
+  {cat:"dessert",name:"Chocolate Éclair",price:4.50,desc:"Choux pastry filled with cream and glazed.",tag:"Veg"},
+  {cat:"dessert",name:"Macarons (3)",price:5.50,desc:"Assorted flavours, crisp outside and soft inside.",tag:"Veg"}
+];
+
+/* ---------- Menu ---------- */
+const list = document.getElementById('menuList');
+function renderMenu(cat){
+  list.innerHTML = MENU.filter(i => cat==='all' || i.cat===cat).map((i,n) => `
+    <div class="m-item" style="animation-delay:${n*30}ms">
+      <div class="m-top">
+        <h3>${i.name}${i.tag ? `<span class="badge">${i.tag}</span>` : ''}</h3>
+        <span class="dots"></span>
+        <span class="price">$${i.price.toFixed(2)}</span>
+      </div>
+      <p>${i.desc}</p>
+    </div>`).join('');
+}
+renderMenu('all');
+document.getElementById('tabs').addEventListener('click', e => {
+  const b = e.target.closest('.tab'); if(!b) return;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  b.classList.add('active'); renderMenu(b.dataset.cat);
+});
+
+/* ---------- Gallery ---------- */
+const ART = [
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNjAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjdmMGUzIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZGNjMDhhIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJ3b29kIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYjk4ZjU3Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOGE2NDMxIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJjdXAiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIwIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9Ii42IiBzdG9wLWNvbG9yPSIjZjZmMWU4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZGRkM2MyIi8+PC9saW5lYXJHcmFkaWVudD4KPHJhZGlhbEdyYWRpZW50IGlkPSJjb2YiIGN4PSIuNSIgY3k9Ii40NSIgcj0iLjYiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2I1N2E0NSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzZlNDIyNCIvPjwvcmFkaWFsR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9InVybCgjYmcpIi8+CjxnIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4zIj48Y2lyY2xlIGN4PSIzMzAiIGN5PSI3MCIgcj0iNDAiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjE1MCIgcj0iMjYiLz48Y2lyY2xlIGN4PSIzNTAiIGN5PSIxOTAiIHI9IjE0Ii8+PC9nPgo8cmVjdCB5PSI0MDAiIHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI3dvb2QpIi8+CjxnIHN0cm9rZT0iIzdhNTUyNyIgc3Ryb2tlLW9wYWNpdHk9Ii4zNSIgc3Ryb2tlLXdpZHRoPSIyIj48cGF0aCBkPSJNMCA0MzJINDAwTTAgNDY2SDQwME0wIDUyMEg0MDBNMCA1NjZINDAwTTEyMCA0MDBWNDMyTTI5MCA0MzJWNDY2TTYwIDQ2NlY1MjBNMjMwIDUyMFY1NjZNMzMwIDU2NlY2MDAiLz48L2c+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMTAwKSI+CjxnIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4zNSI+PGNpcmNsZSBjeD0iNzAiIGN5PSI4MCIgcj0iNDYiLz48Y2lyY2xlIGN4PSIzNDUiIGN5PSIxMjAiIHI9IjMwIi8+PGNpcmNsZSBjeD0iMzAwIiBjeT0iNDAiIHI9IjE2Ii8+PC9nPgo8ZWxsaXBzZSBjeD0iMjA1IiBjeT0iMzE4IiByeD0iMTUwIiByeT0iMjIiIGZpbGw9IiMwMDAiIG9wYWNpdHk9Ii4yMiIvPgo8ZWxsaXBzZSBjeD0iMjAwIiBjeT0iMzAwIiByeD0iMTQ2IiByeT0iMzAiIGZpbGw9IiNmMWViZGYiLz4KPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjI5NCIgcng9IjE0NiIgcnk9IjMwIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNlMmQ4YzYiIHN0cm9rZS13aWR0aD0iMiIvPgo8ZWxsaXBzZSBjeD0iMjAwIiBjeT0iMjk0IiByeD0iMTAwIiByeT0iMTkiIGZpbGw9IiNmMmVjZTEiIHN0cm9rZT0iI2UyZDhjNiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxwYXRoIGQ9Ik0yODggMTk2QzM1MCAxODggMzU2IDI2OCAyODYgMjYyIiBmaWxsPSJub25lIiBzdHJva2U9IiNkOWNmYmQiIHN0cm9rZS13aWR0aD0iMjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNMjg4IDE5NkMzNTAgMTg4IDM1NiAyNjggMjg2IDI2MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTk2IDE4OEM5NiAyNjIgMTM4IDI5NCAxOTggMjk0QzI1OCAyOTQgMjk4IDI2MiAyOTggMTg4WiIgZmlsbD0idXJsKCNjdXApIiBzdHJva2U9IiNlMmQ4YzYiIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNMTE0IDIxNEMxMjAgMjUwIDE0MiAyNzIgMTcwIDI4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iLjkiLz4KPGVsbGlwc2UgY3g9IjE5NyIgY3k9IjE4OCIgcng9IjEwMSIgcnk9IjMxIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNlMmQ4YzYiIHN0cm9rZS13aWR0aD0iMiIvPgo8ZWxsaXBzZSBjeD0iMTk3IiBjeT0iMTkxIiByeD0iODkiIHJ5PSIyNSIgZmlsbD0iIzVlMzcyMCIvPgo8ZWxsaXBzZSBjeD0iMTk3IiBjeT0iMTkwIiByeD0iODUiIHJ5PSIyMyIgZmlsbD0idXJsKCNjb2YpIi8+CjxwYXRoIGQ9Ik0xOTcgMjA3QzE2NiAxOTEgMTcyIDE3MSAxOTcgMTc5QzIyMiAxNzEgMjI4IDE5MSAxOTcgMjA3WiIgZmlsbD0iI2Y2ZWNkYyIvPgo8cGF0aCBkPSJNMTk3IDIwMEMxODMgMTkzIDE4MSAxODYgMTg4IDE4M00xOTcgMjAwQzIxMSAxOTMgMjEzIDE4NiAyMDYgMTgzIiBmaWxsPSJub25lIiBzdHJva2U9IiNjOTlhNjQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIuOCIvPgo8cGF0aCBkPSJNMTk3IDE4MVYyMDYiIHN0cm9rZT0iI2M5OWE2NCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9Ii44Ii8+CjxwYXRoIGQ9Ik0xMzAgMTkwQzE0MCAxNzYgMTYwIDE3MCAxODIgMTcwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIuMzUiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iLjc1Ij4KPHBhdGggZD0iTTE3MCAxNDBDMTUwIDEyMiAxOTAgMTA4IDE2OCA4MiIvPjxwYXRoIGQ9Ik0yMDQgMTM2QzE4NCAxMTYgMjI2IDEwMCAyMDQgNzAiLz48cGF0aCBkPSJNMjM4IDE0MEMyMTggMTI0IDI1NiAxMTAgMjM2IDg2Ii8+PC9nPgo8Zz48ZWxsaXBzZSBjeD0iNjIiIGN5PSIzMzAiIHJ4PSIxNCIgcnk9IjkiIGZpbGw9IiM0YTJhMTciIHRyYW5zZm9ybT0icm90YXRlKC0yOCA2MiAzMzApIi8+PHBhdGggZD0iTTUwIDMzNlE2MiAzMjggNzQgMzI0IiBzdHJva2U9IiNjZmE1NmUiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgdHJhbnNmb3JtPSJyb3RhdGUoMCkiLz4KPGVsbGlwc2UgY3g9Ijg4IiBjeT0iMzUyIiByeD0iMTMiIHJ5PSI4IiBmaWxsPSIjNWIzMzIwIiB0cmFuc2Zvcm09InJvdGF0ZSgyMCA4OCAzNTIpIi8+PHBhdGggZD0iTTc2IDM1MFE4OCAzNTIgMTAwIDM1NiIgc3Ryb2tlPSIjY2ZhNTZlIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz4KPGVsbGlwc2UgY3g9IjMzOCIgY3k9IjMzOCIgcng9IjE0IiByeT0iOSIgZmlsbD0iIzRhMmExNyIgdHJhbnNmb3JtPSJyb3RhdGUoMzAgMzM4IDMzOCkiLz48cGF0aCBkPSJNMzI2IDM0NFEzMzggMzM4IDM1MCAzMzIiIHN0cm9rZT0iI2NmYTU2ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+PC9nPgo8L2c+PC9zdmc+",
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzFmNjQ1NCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBiMmEyMyIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJjIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZThiODY4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYzk4YTNmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSJ1cmwoI2JnKSIvPgo8ZyBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMDciPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjcwIi8+PGNpcmNsZSBjeD0iMzYwIiBjeT0iMzUwIiByPSI5MCIvPjwvZz4KPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjI2MiIgcng9IjE1MCIgcnk9IjM0IiBmaWxsPSIjZjRlY2UxIi8+CjxlbGxpcHNlIGN4PSIyMDAiIGN5PSIyNTgiIHJ4PSIxMTgiIHJ5PSIyNCIgZmlsbD0iI2ViZTBjZiIvPgo8ZWxsaXBzZSBjeD0iMjAwIiBjeT0iMjUwIiByeD0iMTA4IiByeT0iMTQiIGZpbGw9IiMwMDAiIG9wYWNpdHk9Ii4xMiIvPgo8ZyBmaWxsPSJ1cmwoI2MpIiBzdHJva2U9IiNiMzdhMzUiIHN0cm9rZS13aWR0aD0iMi41Ij4KPGVsbGlwc2UgY3g9Ijk4IiBjeT0iMjMyIiByeD0iMzQiIHJ5PSIyMyIgdHJhbnNmb3JtPSJyb3RhdGUoLTQyIDk4IDIzMikiLz4KPGVsbGlwc2UgY3g9IjMwMiIgY3k9IjIzMiIgcng9IjM0IiByeT0iMjMiIHRyYW5zZm9ybT0icm90YXRlKDQyIDMwMiAyMzIpIi8+CjxlbGxpcHNlIGN4PSIxNDIiIGN5PSIyMDgiIHJ4PSI0OCIgcnk9IjM1IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjQgMTQyIDIwOCkiLz4KPGVsbGlwc2UgY3g9IjI1OCIgY3k9IjIwOCIgcng9IjQ4IiByeT0iMzUiIHRyYW5zZm9ybT0icm90YXRlKDI0IDI1OCAyMDgpIi8+CjxlbGxpcHNlIGN4PSIyMDAiIGN5PSIxODgiIHJ4PSI2NCIgcnk9IjQ2Ii8+CjwvZz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjM3YTM1IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iLjgiPgo8cGF0aCBkPSJNMTcwIDE0OEMxODIgMTcyIDE4MiAyMDggMTcwIDIzMiIvPjxwYXRoIGQ9Ik0yMzAgMTQ4QzIxOCAxNzIgMjE4IDIwOCAyMzAgMjMyIi8+CjxwYXRoIGQ9Ik0xMTggMTc2QzEzMiAxOTYgMTMwIDIyMiAxMjAgMjM4Ii8+PHBhdGggZD0iTTI4MiAxNzZDMjY4IDE5NiAyNzAgMjIyIDI4MCAyMzgiLz4KPC9nPgo8ZyBmaWxsPSIjZjZkNTk2IiBvcGFjaXR5PSIuNzUiPjxlbGxpcHNlIGN4PSIxOTAiIGN5PSIxNjAiIHJ4PSIyMiIgcnk9IjgiLz48ZWxsaXBzZSBjeD0iMTM2IiBjeT0iMTg2IiByeD0iMTQiIHJ5PSI2IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjQgMTM2IDE4NikiLz48ZWxsaXBzZSBjeD0iMjY0IiBjeT0iMTg2IiByeD0iMTQiIHJ5PSI2IiB0cmFuc2Zvcm09InJvdGF0ZSgyNCAyNjQgMTg2KSIvPjwvZz4KPC9zdmc+",
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2Y0ZWNlMSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2UxYzc5NSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0idXJsKCNiZykiLz4KPGcgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjQ1Ij48Y2lyY2xlIGN4PSI3MCIgY3k9IjMzMCIgcj0iNjAiLz48Y2lyY2xlIGN4PSIzNDAiIGN5PSI4MCIgcj0iNDYiLz48L2c+CjxlbGxpcHNlIGN4PSIyMDAiIGN5PSIyNzAiIHJ4PSIxNDIiIHJ5PSIzMCIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjZTBkNWMyIiBzdHJva2Utd2lkdGg9IjMiLz4KPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjI2OCIgcng9IjEwNCIgcnk9IjIwIiBmaWxsPSJub25lIiBzdHJva2U9IiNlZmU2ZDYiIHN0cm9rZS13aWR0aD0iMyIvPgo8ZWxsaXBzZSBjeD0iMjA2IiBjeT0iMjU2IiByeD0iNzYiIHJ5PSI5IiBmaWxsPSIjMDAwIiBvcGFjaXR5PSIuMTQiLz4KPHJlY3QgeD0iMTQwIiB5PSIyMjIiIHdpZHRoPSIxMjAiIGhlaWdodD0iMzIiIHJ4PSI3IiBmaWxsPSIjNWIzMzIwIi8+CjxyZWN0IHg9IjE0MCIgeT0iMjEwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEzIiBmaWxsPSIjZjRlY2UxIi8+CjxyZWN0IHg9IjE0MCIgeT0iMTc4IiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjMzIiBmaWxsPSIjNmIzZDIyIi8+CjxyZWN0IHg9IjE0MCIgeT0iMTY2IiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEzIiBmaWxsPSIjZjRlY2UxIi8+CjxyZWN0IHg9IjE0MCIgeT0iMTQ0IiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjIzIiByeD0iMyIgZmlsbD0iIzViMzMyMCIvPgo8cGF0aCBkPSJNMTM0IDE0NlExMzQgMTMyIDE1MCAxMzJIMjUwUTI2NiAxMzIgMjY2IDE0NlYxNTJRMjU4IDE1MCAyNTYgMTY0UTI1MiAxNzIgMjQ2IDE2MFEyNDIgMTUyIDIzNiAxNjBRMjMyIDE3NiAyMjYgMTYwUTIyMiAxNTIgMjE2IDE1NEgxNzZRMTY4IDE1MiAxNjQgMTYyUTE2MCAxNzYgMTU0IDE2MFExNTAgMTUyIDEzNCAxNTJaIiBmaWxsPSIjM2ExZjEyIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjExOCIgcj0iMTciIGZpbGw9IiNjMDM5MmIiLz48Y2lyY2xlIGN4PSIxOTQiIGN5PSIxMTIiIHI9IjQiIGZpbGw9IiNlODY2NWEiLz4KPHBhdGggZD0iTTIwMCAxMDJjLTEwLTgtMTgtNC0yMCAwIDggMiAxNCAyIDIwIDB6TTIwMCAxMDJjMTAtOCAxOC00IDIwIDAtOCAyLTE0IDItMjAgMHoiIGZpbGw9IiMzZjhmNGEiLz4KPC9zdmc+",
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzJhNzU2MyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzE4NTI0NiIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaXEiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM2YjNkMjIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzMzE5MGQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InVybCgjYmcpIi8+CjxnIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4wNyI+PGNpcmNsZSBjeD0iMzMwIiBjeT0iNzAiIHI9IjgwIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSIzNTAiIHI9IjcwIi8+PC9nPgo8ZWxsaXBzZSBjeD0iMjAwIiBjeT0iMzM0IiByeD0iNzYiIHJ5PSIxMCIgZmlsbD0iIzAwMCIgb3BhY2l0eT0iLjIiLz4KPHBhdGggZD0iTTIzMiA0NEwyMDQgMjUyIiBzdHJva2U9IiNkNmI2N2YiIHN0cm9rZS13aWR0aD0iMTEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNMjI5IDYyTDIyNiA4ME0yMjIgMTA2TDIxOSAxMjRNMjE1IDE1MEwyMTIgMTY4IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIuOCIvPgo8cGF0aCBkPSJNMTQyIDkySDI1OEwyNDYgMzEwUTI0NCAzMjQgMjMwIDMyNEgxNzBRMTU2IDMyNCAxNTQgMzEwWiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIuMTQiLz4KPHBhdGggZD0iTTE0NiAxNDhIMjU0TDI0NiAzMDRRMjQ0IDMxNiAyMzAgMzE2SDE3MFExNTYgMzE2IDE1NCAzMDRaIiBmaWxsPSJ1cmwoI2xpcSkiLz4KPHBhdGggZD0iTTE0NiAxNDhIMjU0TDI1MiAxODJRMjM4IDE5NiAyMjYgMTgyUTIxNCAxNjggMjAwIDE4NFExODYgMjAwIDE3MiAxODJRMTYwIDE3MCAxNDggMTg0WiIgZmlsbD0iI2Q5Yjg4YSIvPgo8ZyBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii41IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIuOCIgc3Ryb2tlLXdpZHRoPSIyIj4KPHJlY3QgeD0iMTYzIiB5PSIxNzQiIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgcng9IjciIHRyYW5zZm9ybT0icm90YXRlKDEyIDE4MSAxOTIpIi8+CjxyZWN0IHg9IjIwNiIgeT0iMjAwIiB3aWR0aD0iMzgiIGhlaWdodD0iMzgiIHJ4PSI3IiB0cmFuc2Zvcm09InJvdGF0ZSgtMTAgMjI1IDIxOSkiLz4KPHJlY3QgeD0iMTcwIiB5PSIyMzgiIHdpZHRoPSIzNCIgaGVpZ2h0PSIzNCIgcng9IjciIHRyYW5zZm9ybT0icm90YXRlKDggMTg3IDI1NSkiLz4KPHJlY3QgeD0iMjEyIiB5PSIyNjYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgcng9IjciIHRyYW5zZm9ybT0icm90YXRlKC0xNCAyMjggMjgyKSIvPgo8L2c+CjxwYXRoIGQ9Ik0xNDIgOTJIMjU4TDI0NiAzMTBRMjQ0IDMyNCAyMzAgMzI0SDE3MFExNTYgMzI0IDE1NCAzMTBaIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIuOCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xNTYgMTEwTDE2MiAyOTAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii41IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=",
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2UxYzc5NSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2I5OGY1NyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0idXJsKCNiZykiLz4KPGcgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjI1Ij48Y2lyY2xlIGN4PSI2MCIgY3k9IjYwIiByPSI3MCIvPjxjaXJjbGUgY3g9IjM1MCIgY3k9IjM0MCIgcj0iODAiLz48L2c+CjxjaXJjbGUgY3g9IjIwNCIgY3k9IjIxMCIgcj0iMTEyIiBmaWxsPSIjMDAwIiBvcGFjaXR5PSIuMTUiLz4KPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjA0IiByPSIxMTIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2UwZDVjMiIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjIwNCIgcj0iODgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2VmZTZkNiIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxnIHRyYW5zZm9ybT0icm90YXRlKC04IDE2MCAxNzYpIj48cmVjdCB4PSIxMjQiIHk9IjE0MCIgd2lkdGg9Ijc2IiBoZWlnaHQ9Ijc2IiByeD0iMTIiIGZpbGw9IiNkOWEzNWIiIHN0cm9rZT0iI2IzN2EzNSIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48cmVjdCB4PSIxMzQiIHk9IjE1MCIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iOCIgZmlsbD0iIzliYmY2YSIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjE2NiIgcj0iNSIgZmlsbD0iI2MwMzkyYiIvPjxwYXRoIGQ9Ik0xNDYgMTkwYzEwLTYgMjAtNiAzMCAwIiBzdHJva2U9IiM3YWExNGEiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9nPgo8ZyB0cmFuc2Zvcm09InJvdGF0ZSgxMCAyMzIgMjMyKSI+PHJlY3QgeD0iMTk2IiB5PSIxOTYiIHdpZHRoPSI3MiIgaGVpZ2h0PSI3MiIgcng9IjEyIiBmaWxsPSIjZDlhMzViIiBzdHJva2U9IiNiMzdhMzUiIHN0cm9rZS13aWR0aD0iMi41Ii8+PHBhdGggZD0iTTIwOCAyMzJjOC0yMiAyNi0yNiAzOC0xMiAxMiAxMCA0IDI4LTEyIDMwLTE0IDQtMjYtNC0yNi0xOHoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2U4ZTBkMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGNpcmNsZSBjeD0iMjMyIiBjeT0iMjMwIiByPSIxMSIgZmlsbD0iI2YyYjYzMiIvPjxjaXJjbGUgY3g9IjIyOSIgY3k9IjIyNiIgcj0iMy41IiBmaWxsPSIjZjhkMzZhIi8+PC9nPgo8Y2lyY2xlIGN4PSIxNjAiIGN5PSIyNTAiIHI9IjEwIiBmaWxsPSIjYzAzOTJiIi8+PGNpcmNsZSBjeD0iMTc4IiBjeT0iMjYyIiByPSI5IiBmaWxsPSIjZDQ0YTNhIi8+PGNpcmNsZSBjeD0iMTU3IiBjeT0iMjQ3IiByPSIzIiBmaWxsPSIjZTg2NjVhIi8+CjxwYXRoIGQ9Ik0yNDAgMTUwYzgtMTAgMTgtOCAyMiAwLTggNC0xNiA0LTIyIDB6TTI1OCAxNjBjOC04IDE2LTQgMTggMi04IDItMTQgMi0xOC0yeiIgZmlsbD0iIzNmOGY0YSIvPgo8L3N2Zz4=",
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzJhNzU2MyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzEwMzkyZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0idXJsKCNiZykiLz4KPGcgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjA3Ij48Y2lyY2xlIGN4PSIzNDAiIGN5PSI3MCIgcj0iODAiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjM0MCIgcj0iODAiLz48L2c+CjxlbGxpcHNlIGN4PSIyMDQiIGN5PSIzMDAiIHJ4PSIxMzAiIHJ5PSIxNCIgZmlsbD0iIzAwMCIgb3BhY2l0eT0iLjIyIi8+CjxnIGZpbGw9IiNjOThlNGYiIHN0cm9rZT0iI2E4NzAyZiIgc3Ryb2tlLXdpZHRoPSI0Ij4KPGNpcmNsZSBjeD0iMTUwIiBjeT0iMTk4IiByPSI2MCIvPjxjaXJjbGUgY3g9IjI1MiIgY3k9IjE4MiIgcj0iNTQiLz48Y2lyY2xlIGN4PSIyMTQiIGN5PSIyNTAiIHI9IjU2Ii8+PC9nPgo8ZyBmaWxsPSIjZTBhOTY3IiBvcGFjaXR5PSIuNiI+PGNpcmNsZSBjeD0iMTM4IiBjeT0iMTg0IiByPSIzNCIvPjxjaXJjbGUgY3g9IjI0MCIgY3k9IjE3MCIgcj0iMzAiLz48Y2lyY2xlIGN4PSIyMDIiIGN5PSIyMzgiIHI9IjMyIi8+PC9nPgo8Y2lyY2xlIGN4PSIxMjgiIGN5PSIxODAiIHI9IjciIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIxNjQiIGN5PSIxNzIiIHI9IjYiIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIxNzYiIGN5PSIyMDQiIHI9IjciIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIxNDIiIGN5PSIyMTIiIHI9IjgiIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIxMjAiIGN5PSIyMTYiIHI9IjUiIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIxNjAiIGN5PSIyMjgiIHI9IjYiIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIyMzYiIGN5PSIxNjAiIHI9IjYiIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIyNzIiIGN5PSIxNzIiIHI9IjciIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIyMjgiIGN5PSIxOTIiIHI9IjYiIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIyNjAiIGN5PSIxOTgiIHI9IjciIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIyNzgiIGN5PSIyMDYiIHI9IjUiIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIxOTQiIGN5PSIyMzYiIHI9IjciIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIyMzAiIGN5PSIyMjgiIHI9IjYiIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIyNjAiIHI9IjciIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIyMDgiIGN5PSIyNzAiIHI9IjgiIGZpbGw9IiMzYTFmMTIiLz48Y2lyY2xlIGN4PSIxODYiIGN5PSIyNjIiIHI9IjUiIGZpbGw9IiMzYTFmMTIiLz4KPGcgZmlsbD0iI2M5OGU0ZiI+PGNpcmNsZSBjeD0iOTAiIGN5PSIyODIiIHI9IjQiLz48Y2lyY2xlIGN4PSIzMTIiIGN5PSIyNjIiIHI9IjUiLz48Y2lyY2xlIGN4PSIxMDQiIGN5PSIyOTYiIHI9IjMiLz48L2c+Cjwvc3ZnPg==",
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDAwIDM2MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgc2xpY2UiPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJ3YWxsIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjdmMGUzIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZWJlMGNmIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJmbG9vciIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2NiYTU2YSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2EwN2E0MiIvPjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0ic2t5IiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZDdlYmYyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmJmMGQwIi8+PC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJiZWFtIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmNmQ4IiBzdG9wLW9wYWNpdHk9Ii41NSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZjZkOCIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMTQwMCIgaGVpZ2h0PSIzNjAiIGZpbGw9InVybCgjd2FsbCkiLz4KPHJlY3QgeT0iMjk2IiB3aWR0aD0iMTQwMCIgaGVpZ2h0PSI2NCIgZmlsbD0idXJsKCNmbG9vcikiLz4KPHJlY3QgeT0iMjkyIiB3aWR0aD0iMTQwMCIgaGVpZ2h0PSI2IiBmaWxsPSIjOGE2NDMxIi8+CjxnIHN0cm9rZT0iIzdhNTUyNyIgc3Ryb2tlLW9wYWNpdHk9Ii4zIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0wIDMyMkgxNDAwTTAgMzQ2SDE0MDBNMTQwIDI5OFYzMjJNMzYwIDMyMlYzNDZNNTYwIDI5OFYzMjJNNzgwIDMyMlYzNDZNOTAwIDI5OFYzMjJNMTEwMCAyOThWMzIyTTEyNjAgMzIyVjM0Nk0xMzQwIDI5OFYzMjIiLz48L2c+CjxnPgo8cmVjdCB4PSIxNCIgeT0iNjYiIHdpZHRoPSI1MiIgaGVpZ2h0PSI2OCIgcng9IjMiIGZpbGw9IiM5NzcxM2MiLz48cmVjdCB4PSIyMCIgeT0iNzIiIHdpZHRoPSI0MCIgaGVpZ2h0PSI1NiIgZmlsbD0iI2Y0ZWNlMSIvPjxwYXRoIGQ9Ik0yNCAxMjJDMzIgMTAyIDM4IDkwIDQyIDgyQzQ4IDk0IDU0IDEwNiA1NiAxMjJaIiBmaWxsPSIjOWZjMmE4Ii8+CjxyZWN0IHg9IjEzNiIgeT0iODQiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OCIgcng9IjMiIGZpbGw9IiMxODUyNDYiLz48cmVjdCB4PSIxNDIiIHk9IjkwIiB3aWR0aD0iNDQiIGhlaWdodD0iMzYiIGZpbGw9IiNmNGVjZTEiLz48Y2lyY2xlIGN4PSIxNjQiIGN5PSIxMDYiIHI9IjExIiBmaWxsPSIjZDZiNjdmIi8+PHBhdGggZD0iTTE0NiAxMjJoMzYiIHN0cm9rZT0iIzE4NTI0NiIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxlbGxpcHNlIGN4PSIxMDAiIGN5PSIzMDAiIHJ4PSIzNCIgcnk9IjciIGZpbGw9IiMwMDAiIG9wYWNpdHk9Ii4yIi8+PHJlY3QgeD0iOTciIHk9IjE2MCIgd2lkdGg9IjYiIGhlaWdodD0iMTQwIiBmaWxsPSIjOTc3MTNjIi8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjE0NiIgcj0iNjAiIGZpbGw9IiNmZmYzYzkiIG9wYWNpdHk9Ii4yOCIvPgo8cGF0aCBkPSJNNjIgMTY4TDEzOCAxNjhMMTIwIDExMkw4MCAxMTJaIiBmaWxsPSIjZDZiNjdmIiBzdHJva2U9IiNiOThmNTciIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxNzAiIHJ4PSIzMCIgcnk9IjUiIGZpbGw9IiNmZmYzYzkiIG9wYWNpdHk9Ii44Ii8+CjwvZz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAwIDApIj48Zz4KPHJlY3QgeD0iMzYiIHk9IjI2IiB3aWR0aD0iMTk2IiBoZWlnaHQ9IjI3MCIgcng9IjYiIGZpbGw9IiM5NzcxM2MiLz4KPHJlY3QgeD0iNDYiIHk9IjM2IiB3aWR0aD0iMTc2IiBoZWlnaHQ9IjI1MCIgZmlsbD0iI2U5ZGNjMiIvPgo8ZyBmaWxsPSIjOTc3MTNjIj48cmVjdCB4PSI0NiIgeT0iMTEyIiB3aWR0aD0iMTc2IiBoZWlnaHQ9IjciLz48cmVjdCB4PSI0NiIgeT0iMTkwIiB3aWR0aD0iMTc2IiBoZWlnaHQ9IjciLz48L2c+CjxnPjxyZWN0IHg9IjU0IiB5PSI1MiIgd2lkdGg9IjE0IiBoZWlnaHQ9IjYwIiBmaWxsPSIjMTg1MjQ2Ii8+PHJlY3QgeD0iNzAiIHk9IjYwIiB3aWR0aD0iMTIiIGhlaWdodD0iNTIiIGZpbGw9IiNkNmI2N2YiLz48cmVjdCB4PSI4NCIgeT0iNDgiIHdpZHRoPSIxNiIgaGVpZ2h0PSI2NCIgZmlsbD0iI2I5NTgyZiIvPjxyZWN0IHg9IjEwMiIgeT0iNTgiIHdpZHRoPSIxMiIgaGVpZ2h0PSI1NCIgZmlsbD0iIzJhNzU2MyIvPjxyZWN0IHg9IjExNiIgeT0iNTIiIHdpZHRoPSIxNCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2Y0ZWNlMSIvPjxyZWN0IHg9IjEzMiIgeT0iNjQiIHdpZHRoPSIxMiIgaGVpZ2h0PSI0OCIgZmlsbD0iIzk3NzEzYyIvPjxyZWN0IHg9IjE0NiIgeT0iNTAiIHdpZHRoPSIxNiIgaGVpZ2h0PSI2MiIgZmlsbD0iIzE4NTI0NiIvPjxyZWN0IHg9IjE2NCIgeT0iNjAiIHdpZHRoPSIxMiIgaGVpZ2h0PSI1MiIgZmlsbD0iI2M5YTU2YSIvPgo8Y2lyY2xlIGN4PSIyMDAiIGN5PSI5NiIgcj0iMTQiIGZpbGw9IiNiOTU4MmYiLz48cmVjdCB4PSIxOTAiIHk9IjEwNCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjgiIGZpbGw9IiM5NzcxM2MiLz48L2c+CjxnPjxyZWN0IHg9IjU0IiB5PSIxMzAiIHdpZHRoPSIxNiIgaGVpZ2h0PSI2MCIgZmlsbD0iI2Q2YjY3ZiIvPjxyZWN0IHg9IjcyIiB5PSIxMzgiIHdpZHRoPSIxMiIgaGVpZ2h0PSI1MiIgZmlsbD0iIzE4NTI0NiIvPjxyZWN0IHg9Ijg2IiB5PSIxMjYiIHdpZHRoPSIxNCIgaGVpZ2h0PSI2NCIgZmlsbD0iI2I5NTgyZiIvPjxyZWN0IHg9IjEwMiIgeT0iMTM0IiB3aWR0aD0iMTYiIGhlaWdodD0iNTYiIGZpbGw9IiNmNGVjZTEiLz48cmVjdCB4PSIxMjAiIHk9IjE0MiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjQ4IiBmaWxsPSIjMmE3NTYzIi8+CjxyZWN0IHg9IjE1MCIgeT0iMTUwIiB3aWR0aD0iNjAiIGhlaWdodD0iOSIgZmlsbD0iIzE4NTI0NiIgdHJhbnNmb3JtPSJyb3RhdGUoLTQgMTgwIDE1NCkiLz48cmVjdCB4PSIxNDgiIHk9IjE2MCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjkiIGZpbGw9IiNkNmI2N2YiLz48cmVjdCB4PSIxNTIiIHk9IjE3MCIgd2lkdGg9IjU4IiBoZWlnaHQ9IjkiIGZpbGw9IiNiOTU4MmYiLz48cmVjdCB4PSIxNTAiIHk9IjE4MCIgd2lkdGg9IjYyIiBoZWlnaHQ9IjEwIiBmaWxsPSIjMmE3NTYzIi8+PC9nPgo8Zz48cmVjdCB4PSI1NiIgeT0iMjA4IiB3aWR0aD0iMTIiIGhlaWdodD0iNzgiIGZpbGw9IiMxODUyNDYiLz48cmVjdCB4PSI3MCIgeT0iMjE2IiB3aWR0aD0iMTQiIGhlaWdodD0iNzAiIGZpbGw9IiNkNmI2N2YiLz48cmVjdCB4PSI4NiIgeT0iMjA2IiB3aWR0aD0iMTIiIGhlaWdodD0iODAiIGZpbGw9IiNiOTU4MmYiLz48cmVjdCB4PSIxMDAiIHk9IjIxNCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjcyIiBmaWxsPSIjMmE3NTYzIi8+PHJlY3QgeD0iMTE4IiB5PSIyMjAiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2NiIgZmlsbD0iI2Y0ZWNlMSIvPgo8cmVjdCB4PSIxNTAiIHk9IjI0MCIgd2lkdGg9IjYyIiBoZWlnaHQ9IjQ2IiByeD0iNiIgZmlsbD0iI2I5NTgyZiIvPjxwYXRoIGQ9Ik0xNjQgMjQwdi0xME0xODEgMjQwdi0xNE0xOTggMjQwdi04IiBzdHJva2U9IiMzZjhmNGEiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGVsbGlwc2UgY3g9IjE4MSIgY3k9IjIyNiIgcng9IjI0IiByeT0iNSIgZmlsbD0iIzNmOGY0YSIvPjwvZz4KPC9nPgo8Zz4KPHJlY3QgeD0iMjkwIiB5PSI0NCIgd2lkdGg9IjE5MCIgaGVpZ2h0PSIyMDAiIHJ4PSI4IiBmaWxsPSIjMTg1MjQ2Ii8+CjxyZWN0IHg9IjMwMCIgeT0iNTQiIHdpZHRoPSIxNzAiIGhlaWdodD0iMTgwIiBmaWxsPSJ1cmwoI3NreSkiLz4KPGNpcmNsZSBjeD0iNDI1IiBjeT0iMTAyIiByPSIyNiIgZmlsbD0iI2ZmZTlhOCIvPjxjaXJjbGUgY3g9IjQyNSIgY3k9IjEwMiIgcj0iNDAiIGZpbGw9IiNmZmU5YTgiIG9wYWNpdHk9Ii4zNSIvPgo8cGF0aCBkPSJNMzAwIDIwMEMzMzAgMTcwIDM2MCAxOTAgMzkyIDE3NlM0NDYgMTY2IDQ3MCAxODZWMjM0SDMwMFoiIGZpbGw9IiM5ZmMyYTgiLz4KPHBhdGggZD0iTTMwMCAyMTZDMzQwIDE5NiAzODAgMjE0IDQyMCAyMDJTNDUyIDIwMCA0NzAgMjA4VjIzNEgzMDBaIiBmaWxsPSIjN2RhOThiIi8+CjxwYXRoIGQ9Ik0zODUgNTRWMjM0TTMwMCAxNDRINDcwIiBzdHJva2U9IiMxODUyNDYiIHN0cm9rZS13aWR0aD0iNyIvPgo8cmVjdCB4PSIyODIiIHk9IjIzOCIgd2lkdGg9IjIwNiIgaGVpZ2h0PSIxMiIgcng9IjMiIGZpbGw9IiM5NzcxM2MiLz4KPHBhdGggZD0iTTMzOCAyMzhjLTYtMTggOC0yNCAyLTQwTTM1MiAyMzhjMC0yMCAxNC0yNCAxMi00MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2Y4ZjRhIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxlbGxpcHNlIGN4PSIzNDIiIGN5PSIxOTYiIHJ4PSI4IiByeT0iMTQiIGZpbGw9IiMzZjhmNGEiIHRyYW5zZm9ybT0icm90YXRlKC0xOCAzNDIgMTk2KSIvPjxlbGxpcHNlIGN4PSIzNjQiIGN5PSIxOTQiIHJ4PSI4IiByeT0iMTQiIGZpbGw9IiMyZjdhM2MiIHRyYW5zZm9ybT0icm90YXRlKDE2IDM2NCAxOTQpIi8+CjwvZz4KPHBhdGggZD0iTTMwMCAyNTBMNDcwIDI1MEw2MzAgMjk2TDI0MCAyOTZaIiBmaWxsPSJ1cmwoI2JlYW0pIi8+CjxnIHN0cm9rZT0iIzE4NTI0NiIgc3Ryb2tlLXdpZHRoPSIzIj48cGF0aCBkPSJNNTkwIDBWOTYiLz48cGF0aCBkPSJNNzgwIDBWNzgiLz48L2c+CjxjaXJjbGUgY3g9IjU5MCIgY3k9IjExMiIgcj0iNTYiIGZpbGw9IiNmZmYzYzkiIG9wYWNpdHk9Ii4zIi8+PHBhdGggZD0iTTU1MiAxMDhRNTkwIDY2IDYyOCAxMDhaIiBmaWxsPSIjYjk4ZjU3Ii8+PGNpcmNsZSBjeD0iNTkwIiBjeT0iMTEwIiByPSI5IiBmaWxsPSIjZmZmM2M5Ii8+CjxjaXJjbGUgY3g9Ijc4MCIgY3k9IjkyIiByPSI0NiIgZmlsbD0iI2ZmZjNjOSIgb3BhY2l0eT0iLjI4Ii8+PHBhdGggZD0iTTc0OCA5MFE3ODAgNTIgODEyIDkwWiIgZmlsbD0iIzE4NTI0NiIvPjxjaXJjbGUgY3g9Ijc4MCIgY3k9IjkyIiByPSI4IiBmaWxsPSIjZmZmM2M5Ii8+CjxnPjxyZWN0IHg9Ijg0MiIgeT0iNTIiIHdpZHRoPSI5MiIgaGVpZ2h0PSIxMTYiIHJ4PSI0IiBmaWxsPSIjOTc3MTNjIi8+PHJlY3QgeD0iODUwIiB5PSI2MCIgd2lkdGg9Ijc2IiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y0ZWNlMSIvPjxwYXRoIGQ9Ik04NTggMTUwQzg3MCAxMTggODgwIDk2IDg4OCA4NEM4OTYgMTAwIDkwNiAxMjQgOTE4IDE1MFoiIGZpbGw9IiM5ZmMyYTgiLz48Y2lyY2xlIGN4PSI5MDYiIGN5PSI4MiIgcj0iOSIgZmlsbD0iI2Q2YjY3ZiIvPjxwYXRoIGQ9Ik04NTggMTUwaDYwIiBzdHJva2U9IiMxODUyNDYiIHN0cm9rZS13aWR0aD0iMyIvPjwvZz4KPGVsbGlwc2UgY3g9IjYyMCIgY3k9IjMyNiIgcng9IjE5MCIgcnk9IjIwIiBmaWxsPSIjMTg1MjQ2IiBvcGFjaXR5PSIuMTYiLz4KPGVsbGlwc2UgY3g9IjYyMCIgY3k9IjMyMiIgcng9IjE3NiIgcnk9IjE3IiBmaWxsPSIjZDZiNjdmIi8+PGVsbGlwc2UgY3g9IjYyMCIgY3k9IjMyMiIgcng9IjE1MCIgcnk9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9IiNiOThmNTciIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWRhc2hhcnJheT0iMTAgOCIvPgo8Zz4KPHJlY3QgeD0iNTQwIiB5PSIxNjgiIHdpZHRoPSIxNTYiIGhlaWdodD0iMTA0IiByeD0iMzgiIGZpbGw9IiMxODUyNDYiLz4KPHJlY3QgeD0iNTIwIiB5PSIyMzIiIHdpZHRoPSIxOTYiIGhlaWdodD0iNTgiIHJ4PSIyNCIgZmlsbD0iIzFmNjQ1NCIvPgo8Y2lyY2xlIGN4PSI1MzQiIGN5PSIyNDAiIHI9IjMwIiBmaWxsPSIjMTg1MjQ2Ii8+PGNpcmNsZSBjeD0iNzAyIiBjeT0iMjQwIiByPSIzMCIgZmlsbD0iIzE4NTI0NiIvPgo8cmVjdCB4PSI1NTYiIHk9IjIwNiIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQwIiByeD0iMTAiIGZpbGw9IiNkNmI2N2YiIHRyYW5zZm9ybT0icm90YXRlKC0xMiA1ODAgMjI2KSIvPjxwYXRoIGQ9Ik01NjYgMjE2bDI0LTZNNTY2IDIyNmwyNC02IiBzdHJva2U9IiNiOThmNTciIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB0cmFuc2Zvcm09InJvdGF0ZSgtMTIgNTgwIDIyNikiLz4KPHBhdGggZD0iTTU1MiAyOTJWMzEyTTY5MCAyOTJWMzEyIiBzdHJva2U9IiM5NzcxM2MiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwvZz4KPGc+CjxyZWN0IHg9Ijc0OCIgeT0iMjUwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjkiIHJ4PSIzIiBmaWxsPSIjOTc3MTNjIi8+PHBhdGggZD0iTTc2MiAyNTlWMzA2TTgzNCAyNTlWMzA2IiBzdHJva2U9IiM5NzcxM2MiIHN0cm9rZS13aWR0aD0iNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxyZWN0IHg9Ijc4MCIgeT0iMjI0IiB3aWR0aD0iMzIiIGhlaWdodD0iMjYiIHJ4PSI1IiBmaWxsPSIjZmZmIiBzdHJva2U9IiNlMmQ4YzYiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik04MTIgMjMwaDdhNiA2IDAgMCAxIDAgMTJoLTciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UyZDhjNiIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxlbGxpcHNlIGN4PSI3OTYiIGN5PSIyMjYiIHJ4PSIxNCIgcnk9IjMuNSIgZmlsbD0iIzZlNDIyNCIvPgo8cGF0aCBkPSJNNzg4IDIxNGMtNi0xMCA2LTE0IDAtMjZNODAyIDIxNGMtNi0xMCA2LTE0IDAtMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I5OGY1NyIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9Ii43Ii8+CjwvZz4KPGc+CjxwYXRoIGQ9Ik05MDIgMjk2TDkxMCAyMzZIOTU4TDk2NiAyOTZaIiBmaWxsPSIjYjk1ODJmIi8+PHJlY3QgeD0iOTAyIiB5PSIyMjgiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxMiIgcng9IjQiIGZpbGw9IiM5NzcxM2MiLz4KPGcgZmlsbD0iIzNmOGY0YSI+PGVsbGlwc2UgY3g9IjkzNCIgY3k9IjE3NiIgcng9IjE0IiByeT0iNTAiLz48ZWxsaXBzZSBjeD0iOTA4IiBjeT0iMTk4IiByeD0iMTMiIHJ5PSI0MiIgdHJhbnNmb3JtPSJyb3RhdGUoLTM0IDkwOCAxOTgpIi8+PGVsbGlwc2UgY3g9Ijk2MCIgY3k9IjE5OCIgcng9IjEzIiByeT0iNDIiIHRyYW5zZm9ybT0icm90YXRlKDM0IDk2MCAxOTgpIi8+PGVsbGlwc2UgY3g9Ijg5MiIgY3k9IjIyNCIgcng9IjEwIiByeT0iMzAiIHRyYW5zZm9ybT0icm90YXRlKC02MiA4OTIgMjI0KSIvPjxlbGxpcHNlIGN4PSI5NzYiIGN5PSIyMjQiIHJ4PSIxMCIgcnk9IjMwIiB0cmFuc2Zvcm09InJvdGF0ZSg2MiA5NzYgMjI0KSIvPjwvZz4KPGVsbGlwc2UgY3g9IjkzNCIgY3k9IjE4MiIgcng9IjQiIHJ5PSI0MCIgZmlsbD0iIzJmN2EzYyIgb3BhY2l0eT0iLjciLz4KPC9nPgo8L2c+PGc+CjxlbGxpcHNlIGN4PSIxMzAwIiBjeT0iMzE2IiByeD0iNzIiIHJ5PSI5IiBmaWxsPSIjMDAwIiBvcGFjaXR5PSIuMTgiLz4KPHJlY3QgeD0iMTI5NiIgeT0iMjYyIiB3aWR0aD0iOCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzk3NzEzYyIvPjxlbGxpcHNlIGN4PSIxMzAwIiBjeT0iMzA0IiByeD0iMjgiIHJ5PSI2IiBmaWxsPSIjOTc3MTNjIi8+CjxlbGxpcHNlIGN4PSIxMzAwIiBjeT0iMjU4IiByeD0iNTgiIHJ5PSIxMSIgZmlsbD0iI2I5OGY1NyIvPjxlbGxpcHNlIGN4PSIxMzAwIiBjeT0iMjU1IiByeD0iNTgiIHJ5PSIxMSIgZmlsbD0iI2Q2YjY3ZiIvPgo8cmVjdCB4PSIxMjcwIiB5PSIyMzYiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxOSIgcng9IjQiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2UyZDhjNiIgc3Ryb2tlLXdpZHRoPSIyIi8+PGVsbGlwc2UgY3g9IjEyODIiIGN5PSIyMzciIHJ4PSIxMCIgcnk9IjIuNiIgZmlsbD0iIzZlNDIyNCIvPjxwYXRoIGQ9Ik0xMjk0IDI0MWg1YTQuNSA0LjUgMCAwIDEgMCA5aC01IiBmaWxsPSJub25lIiBzdHJva2U9IiNlMmQ4YzYiIHN0cm9rZS13aWR0aD0iMi41Ii8+CjxlbGxpcHNlIGN4PSIxMzI0IiBjeT0iMjUyIiByeD0iMTciIHJ5PSI0IiBmaWxsPSIjZmZmIiBzdHJva2U9IiNlMmQ4YzYiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0xMzEyIDI1MGM0LTggMjAtOCAyNCAweiIgZmlsbD0iI2UxYjg3MyIgc3Ryb2tlPSIjYjk4ZjU3IiBzdHJva2Utd2lkdGg9IjIiLz4KPHJlY3QgeD0iMTIxNCIgeT0iMjE0IiB3aWR0aD0iOCIgaGVpZ2h0PSI2NCIgcng9IjMiIGZpbGw9IiMxODUyNDYiLz48cmVjdCB4PSIxMjE0IiB5PSIyNTYiIHdpZHRoPSI0MiIgaGVpZ2h0PSI5IiByeD0iMyIgZmlsbD0iIzE4NTI0NiIvPjxwYXRoIGQ9Ik0xMjIwIDI2NVYzMDJNMTI1MiAyNjVWMzAyIiBzdHJva2U9IiMxODUyNDYiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxyZWN0IHg9IjEzNzgiIHk9IjIxNCIgd2lkdGg9IjgiIGhlaWdodD0iNjQiIHJ4PSIzIiBmaWxsPSIjMTg1MjQ2Ii8+PHJlY3QgeD0iMTM0NCIgeT0iMjU2IiB3aWR0aD0iNDIiIGhlaWdodD0iOSIgcng9IjMiIGZpbGw9IiMxODUyNDYiLz48cGF0aCBkPSJNMTM0OCAyNjVWMzAyTTEzODAgMjY1VjMwMiIgc3Ryb2tlPSIjMTg1MjQ2IiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8ZyBzdHJva2U9IiMxODUyNDYiIHN0cm9rZS13aWR0aD0iMyI+PHBhdGggZD0iTTEzMDAgMFY3OCIvPjwvZz48Y2lyY2xlIGN4PSIxMzAwIiBjeT0iOTYiIHI9IjUwIiBmaWxsPSIjZmZmM2M5IiBvcGFjaXR5PSIuMjgiLz48cGF0aCBkPSJNMTI2OCA5MlExMzAwIDU2IDEzMzIgOTJaIiBmaWxsPSIjYjk4ZjU3Ii8+PGNpcmNsZSBjeD0iMTMwMCIgY3k9Ijk0IiByPSI4IiBmaWxsPSIjZmZmM2M5Ii8+CjwvZz4KPC9zdmc+"
+];
+// Each tile shows a built-in illustration; if a photo link in CONFIG.photos loads, it covers the illustration.
+document.getElementById('galleryGrid').innerHTML = CONFIG.gallery.map((label,i) => {
+  const p = CONFIG.photos[i];
+  const style = (p ? `--img:url('${p}');` : '') + `--art:url('${ART[i]}')`;
+  return `<div class="g" role="img" aria-label="${label}" style="${style}"><span>${label}</span></div>`;
+}).join('');
+
+/* ---------- Hours / status ---------- */
+const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const fmt = h => `${h%12||12}:00 ${h>=12?'PM':'AM'}`;
+const now = new Date(), dow = now.getDay();
+document.getElementById('hours').innerHTML = days.map((d,i) => {
+  const h = CONFIG.hours[i];
+  return `<li class="${i===dow?'today':''}"><span>${d}</span><span>${h ? fmt(h[0])+' – '+fmt(h[1]) : 'Closed'}</span></li>`;
+}).join('');
+const th = CONFIG.hours[dow];
+document.getElementById('todayHours').textContent = th ? `Today ${fmt(th[0])} – ${fmt(th[1])}` : 'Closed today';
+const cur = now.getHours() + now.getMinutes()/60;
+const isOpen = th && cur>=th[0] && cur<th[1];
+['status','status2'].forEach(id => {
+  const el = document.getElementById(id);
+  el.textContent = isOpen ? `Open now · until ${fmt(th[1])}` : 'Closed right now';
+  el.classList.add(isOpen ? 'open' : 'closed');
+});
+
+/* ---------- Contact details ---------- */
+const tel = 'tel:' + CONFIG.phone.replace(/[^\d+]/g,'');
+const q = encodeURIComponent(CONFIG.mapQuery);
+const dir = 'https://www.google.com/maps/dir/?api=1&destination=' + q;
+const set = (id, txt, href) => { const e = document.getElementById(id); e.textContent = txt; if(href) e.href = href; };
+set('heroAddr', CONFIG.address); set('heroPhone', CONFIG.phone, tel); document.getElementById('heroDir').href = dir;
+set('addr', CONFIG.address); set('phoneLink', CONFIG.phone, tel); set('mailLink', CONFIG.email, 'mailto:'+CONFIG.email);
+set('fAddr', CONFIG.address); set('fPhone', CONFIG.phone, tel); set('fMail', CONFIG.email, 'mailto:'+CONFIG.email);
+document.getElementById('dirBtn').href = dir;
+set('mapAddr', CONFIG.address);
+document.getElementById('mapBtn').href = 'https://www.google.com/maps/search/?api=1&query=' + q;
+document.getElementById('comboPrice').textContent = CONFIG.comboPrice;
+document.getElementById('year').textContent = now.getFullYear();
+
+/* ---------- SEO: structured data ---------- */
+(function(){
+  const ld = {"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":CONFIG.name,"slogan":"A taste from Europe","address":CONFIG.address,"telephone":CONFIG.phone,"email":CONFIG.email,"sameAs":["https://www.instagram.com/cafe_in_usa"]};
+  const s = document.createElement('script'); s.type='application/ld+json'; s.textContent = JSON.stringify(ld); document.head.appendChild(s);
+})();
+
+/* ---------- Form ---------- */
+document.getElementById('date').min = now.toISOString().split('T')[0];
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const body = `Name: ${v('name')}\nPhone: ${v('phone')||'-'}\nDate: ${v('date')||'-'}\nGuests: ${v('guests')}\n\n${v('msg')}`;
+  location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent('Reservation / enquiry from '+v('name'))}&body=${encodeURIComponent(body)}`;
+  document.getElementById('formMsg').textContent = 'Opening your email app… thank you!';
+});
+
+/* ---------- FAQ ---------- */
+document.getElementById('faqWrap').addEventListener('click', e => {
+  const b = e.target.closest('button'); if(!b) return;
+  const item = b.parentElement, was = item.classList.contains('open');
+  document.querySelectorAll('.faq').forEach(f => f.classList.remove('open'));
+  if(!was) item.classList.add('open');
+});
+
+/* ---------- Nav & scroll ---------- */
+const header = document.getElementById('top'), toTop = document.getElementById('toTop');
+const links = document.getElementById('navlinks'), burger = document.getElementById('burger');
+const icon = open => burger.innerHTML = `<svg><use href="#${open?'i-close':'i-menu'}"/></svg>`;
+const onScroll = () => { header.classList.toggle('scrolled', scrollY > 40); toTop.classList.toggle('show', scrollY > 600); };
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+toTop.onclick = () => scrollTo({top:0, behavior:'smooth'});
+burger.onclick = () => { links.classList.toggle('open'); icon(links.classList.contains('open')); };
+links.addEventListener('click', e => { if(e.target.tagName==='A'){ links.classList.remove('open'); icon(false); } });
+
+/* ---------- Reveal ---------- */
+const io = new IntersectionObserver(es => es.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
